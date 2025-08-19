@@ -127,30 +127,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 40px;
+            height: 40px;
         }
 
         .dark-mode-btn:hover {
             border-color: var(--primary-color);
             transform: scale(1.1);
-        }
-
-        .dark-mode-btn__icon {
-            width: 20px;
-            height: 20px;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .dark-mode-btn__icon:first-child {
-            display: none;
-        }
-
-        [data-theme="light"] .dark-mode-btn__icon:last-child,
-        .dark-mode-btn__icon:last-child {
-            display: none;
-        }
-
-        [data-theme="dark"] .dark-mode-btn__icon:last-child {
-            display: block;
         }
 
         /* Header */
@@ -216,23 +199,6 @@
             position: relative;
         }
 
-        .header__title em::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 2px;
-            animation: expand 2s ease-out 0.5s both;
-        }
-
-        @keyframes expand {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
         .header__text {
             font-size: 1.25rem;
             color: var(--text-secondary);
@@ -259,24 +225,9 @@
             font-family: inherit;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn-secondary {
@@ -404,30 +355,10 @@
             background: var(--gradient);
             position: relative;
             overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .project-image::after {
-            content: '🚀';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
+            font-size: 3rem;
         }
 
         .project-content {
@@ -466,6 +397,7 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .project-link {
@@ -476,111 +408,14 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: var(--bg-secondary);
         }
 
         .project-link:hover {
             color: var(--primary-color);
-        }
-
-        .project-link svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* CV Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: var(--bg-card);
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: var(--shadow-hover);
-            position: relative;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .close {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            color: var(--text-secondary);
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: var(--text-primary);
-        }
-
-        .modal h3 {
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .modal p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .file-upload {
-            margin-bottom: 2rem;
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .file-label {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--bg-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            width: 100%;
-        }
-
-        .file-label:hover {
-            border-color: var(--primary-color);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .file-status {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(34, 197, 94, 0.1);
-            color: #059669;
-            border-radius: 10px;
-            display: none;
+            background: rgba(99, 102, 241, 0.1);
         }
 
         /* Footer */
@@ -614,23 +449,16 @@
             border-radius: 50%;
             transition: all 0.3s ease;
             border: 2px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: bold;
         }
 
         .social__item a:hover {
             background: var(--gradient);
             border-color: transparent;
             transform: translateY(-3px) scale(1.1);
-        }
-
-        .social__item svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--text-secondary);
-            transition: fill 0.3s ease;
-        }
-
-        .social__item a:hover svg {
-            fill: white;
+            color: white;
         }
 
         .copyright {
@@ -687,11 +515,6 @@
                 margin-left: 0;
                 margin-top: 1rem;
             }
-
-            .modal-content {
-                margin: 10% auto;
-                width: 95%;
-            }
         }
 
         /* Scroll animations */
@@ -730,12 +553,7 @@
                     </ul>
                     
                     <button class="dark-mode-btn" onclick="toggleTheme()">
-                        <svg class="dark-mode-btn__icon" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-                        </svg>
-                        <svg class="dark-mode-btn__icon" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
+                        <span id="theme-icon">🌙</span>
                     </button>
                     
                     <button class="mobile-menu-btn">☰</button>
@@ -754,7 +572,7 @@
                 <div class="header__text">
                     <p>Passionate about building clean UIs and solving real-world problems with modern web technologies.</p>
                 </div>
-                <button class="btn" onclick="openCVModal()">Download CV</button>
+                <a href="./archana_cv.pdf" download="Archana_Prabhat_CV.pdf" class="btn">Download CV</a>
                 <a href="#projects" class="btn btn-secondary">View Projects</a>
             </div>
         </div>
@@ -795,57 +613,49 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card animate-on-scroll">
-                    <div class="project-image"></div>
+                    <div class="project-image">📊</div>
                     <div class="project-content">
-                        <h3 class="project-title">E-Commerce Platform</h3>
-                        <p class="project-description">A full-stack e-commerce solution with modern UI/UX, secure payments, and admin dashboard. Features include product management, cart functionality, and order tracking.</p>
+                        <h3 class="project-title">Consistency Tracker</h3>
+                        <p class="project-description">A minimalist habit tracking application with beautiful UI and progress visualization. Built with Next.js and deployed on Vercel.</p>
                         <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
-                            <span class="tech-tag">TailwindCSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-                                </svg>
-                                Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Built with modern React patterns.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Redux Toolkit</span>
+                            <span class="tech-tag">Typescript</span>
                             <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Material-UI</span>
-                            <span class="tech-tag">React DnD</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Code
+                            <a href="https://github.com/archanaprabhat/Consistency" class="project-link" target="_blank">
+                                GitHub
                             </a>
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-                                </svg>
+                            <a href="https://tracker-nextjs-iqvc.vercel.app/" class="project-link" target="_blank">
+                                Live Demo
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=z7ydapMhn6Y" class="project-link" target="_blank">
+                                Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Artificium</h3>
+                        <p class="project-description"> A responsive UI demo built with React, Vite, and Tailwind CSS.
+                          Includes smooth routing with React Router, clean layout, and subtle animations.
+                          Designed to be fast, mobile-friendly, and scalable.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">React Router</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/archanaprabhat/Artificium" class="project-link" target="_blank">
+                                GitHub
+                            </a>
+                            <a href="https://artificium-chi.vercel.app/" class="project-link" target="_blank">
                                 Live Demo
                             </a>
                         </div>
@@ -853,29 +663,88 @@
                 </div>
 
                 <div class="project-card animate-on-scroll">
-                    <div class="project-image"></div>
+                    <div class="project-image">👥</div>
                     <div class="project-content">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">A modern, responsive portfolio website showcasing projects and skills. Features smooth animations, dark mode toggle, and optimized performance.</p>
+                        <h3 class="project-title">Workforce Chart</h3>
+                        <p class="project-description">Employee data management system with API integration, search functionality, and sortable table views. Built with modern web technologies.</p>
                         <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API Integration</span>
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">GSAP</span>
-                            <span class="tech-tag">Responsive Design</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                Code
+                            <a href="https://github.com/archanaprabhat/workforce-chart" class="project-link" target="_blank">
+                                GitHub
                             </a>
-                            <a href="#" class="project-link">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-                                </svg>
+                            <a href="https://workforce-chart.vercel.app/" class="project-link" target="_blank">
                                 Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">💬</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Real-Time Chat App</h3>
+                        <p class="project-description">A real-time chat application with modern UI and instant messaging capabilities. Features include user authentication and message history.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Real-time</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/archanaprabhat/ChatApp" class="project-link" target="_blank">
+                                GitHub
+                            </a>
+                            <a href="https://www.youtube.com/shorts/--Hswuwx7jw" class="project-link" target="_blank">
+                                Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">📍</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Real-Time Location Tracker</h3>
+                        <p class="project-description">A location tracking application with real-time updates and map integration. Features live location sharing and tracking capabilities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Geolocation API</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Maps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/archanaprabhat/RealTime-Tracker" class="project-link" target="_blank">
+                                GitHub
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=rFD_K5pVOc0" class="project-link" target="_blank">
+                                Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll">
+                    <div class="project-image">♟️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Chess Game</h3>
+                        <p class="project-description">A fully functional chess game with clean UI and game logic implementation. Features move validation and game state management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Game Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/archanaprabhat/chess" class="project-link" target="_blank">
+                                GitHub
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=jX7EPPMupLs" class="project-link" target="_blank">
+                                Demo Video
                             </a>
                         </div>
                     </div>
@@ -884,60 +753,18 @@
         </div>
     </section>
 
-    <!-- CV Upload Modal -->
-    <div id="cvModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCVModal()">&times;</span>
-            <h3>Resume/CV</h3>
-            <p>Upload your resume to make it available for download, or download the current version if available.</p>
-            
-            <div class="file-upload">
-                <input type="file" id="cvFile" class="file-input" accept=".pdf,.doc,.docx" onchange="handleFileUpload(event)">
-                <label for="cvFile" class="file-label">
-                    <div>📄</div>
-                    <div>Click to upload your resume</div>
-                    <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Supported formats: PDF, DOC, DOCX</div>
-                </label>
-                <div id="fileStatus" class="file-status">
-                    ✅ Resume uploaded successfully!
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <button class="btn" onclick="downloadStoredCV()" id="downloadBtn" disabled>
-                    📥 Download Current CV
-                </button>
-                <button class="btn btn-secondary" onclick="clearStoredCV()" id="clearBtn" disabled>
-                    🗑️ Remove CV
-                </button>
-            </div>
-        </div>
-    </div>
-
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer__wrapper">
                 <ul class="social">
                     <li class="social__item">
-                        <a href="https://github.com/archanaprabhat" target="_blank" title="GitHub">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
+                        <a href="https://github.com/archanaprabhat" target="_blank" title="GitHub">GH</a>
                     </li>
                     <li class="social__item">
-                        <a href="https://www.linkedin.com/in/archana-tk/" target="_blank" title="LinkedIn">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
+                        <a href="https://www.linkedin.com/in/archana-tk/" target="_blank" title="LinkedIn">LI</a>
                     </li>
                     <li class="social__item">
-                        <a href="mailto:archana@example.com" title="Email">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </a>
+                        <a href="https://medium.com/@archanaprabhathtk" title="Medium">Md</a>
                     </li>
                 </ul>
                 <div class="copyright">
@@ -948,115 +775,15 @@
     </footer>
 
     <script>
-        // CV Storage functionality
-        let storedCVFile = null;
-        let storedCVName = '';
-
         // Theme toggle functionality
         function toggleTheme() {
             const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             
             body.setAttribute('data-theme', newTheme);
-            // Note: localStorage is not available in this environment
-        }
-
-        // Load saved theme (would normally use localStorage)
-        function loadTheme() {
-            // Default to light theme since localStorage is not available
-            document.body.setAttribute('data-theme', 'light');
-        }
-
-        // CV Modal functions
-        function openCVModal() {
-            document.getElementById('cvModal').style.display = 'block';
-            updateCVButtons();
-        }
-
-        function closeCVModal() {
-            document.getElementById('cvModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('cvModal');
-            if (event.target == modal) {
-                closeCVModal();
-            }
-        }
-
-        // Handle file upload
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                // Validate file type
-                const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                if (!allowedTypes.includes(file.type)) {
-                    alert('Please upload a PDF, DOC, or DOCX file.');
-                    return;
-                }
-
-                // Validate file size (max 5MB)
-                if (file.size > 5 * 1024 * 1024) {
-                    alert('File size should be less than 5MB.');
-                    return;
-                }
-
-                storedCVFile = file;
-                storedCVName = file.name;
-                
-                document.getElementById('fileStatus').style.display = 'block';
-                document.getElementById('fileStatus').innerHTML = `✅ ${file.name} uploaded successfully!`;
-                
-                updateCVButtons();
-            }
-        }
-
-        // Update button states
-        function updateCVButtons() {
-            const downloadBtn = document.getElementById('downloadBtn');
-            const clearBtn = document.getElementById('clearBtn');
-            
-            if (storedCVFile) {
-                downloadBtn.disabled = false;
-                clearBtn.disabled = false;
-                downloadBtn.style.opacity = '1';
-                clearBtn.style.opacity = '1';
-            } else {
-                downloadBtn.disabled = true;
-                clearBtn.disabled = true;
-                downloadBtn.style.opacity = '0.5';
-                clearBtn.style.opacity = '0.5';
-            }
-        }
-
-        // Download stored CV
-        function downloadStoredCV() {
-            if (storedCVFile) {
-                const url = URL.createObjectURL(storedCVFile);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = storedCVName;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            } else {
-                alert('No CV file is currently stored. Please upload a file first.');
-            }
-        }
-
-        // Clear stored CV
-        function clearStoredCV() {
-            if (confirm('Are you sure you want to remove the stored CV?')) {
-                storedCVFile = null;
-                storedCVName = '';
-                document.getElementById('fileStatus').style.display = 'none';
-                document.getElementById('cvFile').value = '';
-                updateCVButtons();
-                alert('CV removed successfully.');
-            }
+            themeIcon.textContent = newTheme === 'light' ? '🌙' : '☀️';
         }
 
         // Smooth scrolling for navigation links
@@ -1102,55 +829,13 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadTheme();
             animateOnScroll();
-            updateCVButtons();
             
             window.addEventListener('scroll', () => {
                 animateOnScroll();
                 handleNavbarScroll();
             });
         });
-
-        // Add some interactive particles (optional enhancement)
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: var(--primary-color);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0.6;
-                animation: float-up 3s ease-out forwards;
-            `;
-            
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = window.innerHeight + 'px';
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 3000);
-        }
-
-        // Add floating particles periodically
-        setInterval(createParticle, 2000);
-
-        // Add CSS for particle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float-up {
-                to {
-                    transform: translateY(-100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
